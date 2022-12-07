@@ -10,4 +10,10 @@ config_version=5
 
 [application]
 
+run/main_scene="res://Register.tscn"
 config/features=PackedStringArray("4.0")
+
+[display]
+
+window/size/viewport_width=940
+window/size/viewport_height=990

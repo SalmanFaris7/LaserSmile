@@ -52,7 +52,8 @@ func _on_button_pressed():
 	$HttpRequest.request(url)
 	$Control/VBoxContainer/VSplitContainer2.set_visible(true)
 	$Control/VBoxContainer/VSplitContainer/TextureRect/Button.set_visible(false)
-	$Control/Timer.start()	
+	$Control/Timer.start()
+	$Control/VBoxContainer/VSplitContainer/TextureRect/STOP_BUTTON.set_visible(true)
 
 func _on_texture_button_pressed():
 	$HttpRequest.request(url)
