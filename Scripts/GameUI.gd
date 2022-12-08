@@ -1,9 +1,17 @@
+#Node2d Contains the parent untitled class of the sub nodes
+#reference:https://www.javatpoint.com/godot-classes-in-gdscript#:~:text=The%20body%20of%20a%20script,contain%20member%20variables%20or%20functions.
 extends Node2D
 var runtime = 0
 var url = "https://marcconrad.com/uob/smile/api.php?out=json&base64=yes"
 var end = $Control/BoxContainer/TextureRect/RichTextLabel
 var MaxTime = $Control/BoxContainer/TextureRect/RichTextLabel
 var Final_Points = $Control/BoxContainer/TextureRect/RichTextLabel
+# Encapsulation has been done to following variable as the varible will used by outside classes
+var test = 0 : get = test_get
+
+func test_get():
+	return test
+
 
 func _ready():
 	pass
@@ -34,11 +42,11 @@ func _on_http_request_request_completed(result, response_code, headers, body):
 		if (randLabel%2==0):
 			lab1.set_text(str(solution))
 			lab2.set_text(str(random))
-			$Control/lbl_pass.set_text("L1")
+			test = 1
 		else:
 			lab1.set_text(str(random))
 			lab2.set_text(str(solution))
-			$Control/lbl_pass.set_text("L2")
+			test = 2
 		var load_img = Image.new()
 		load_img.load_png_from_buffer(Marshalls.base64_to_raw(question))
 		var texture = ImageTexture.create_from_image(load_img)

@@ -10,6 +10,7 @@ config_version=5
 
 [application]
 
+config/name="Laser"
 run/main_scene="res://Register.tscn"
 config/features=PackedStringArray("4.0")
 

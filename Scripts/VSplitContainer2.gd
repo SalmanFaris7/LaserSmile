@@ -1,3 +1,5 @@
+#Vsplit container has the untitled class which is inherited from the untitled class of Node2d
+#reference: https://docs.godotengine.org/en/3.1/getting_started/workflow/best_practices/what_are_godot_classes.html
 extends VSplitContainer
 
 signal finish_game
@@ -28,7 +30,6 @@ func _on_texture_button_button_down():
 	var M1angle = $Mirror1.rotation
 	var M2angle = $Mirror2.rotation
 	var hit
-	var plabel
 	line.clear_points()
 	
 	line.add_point(Vector2.ZERO)
@@ -78,11 +79,11 @@ func _on_texture_button_button_down():
 			break
 		
 		if coll.is_in_group("A1"):
-			hit="L1"
+			hit=1
 			cont += 1
 			break
 		if coll.is_in_group("A2"):
-			hit="L2"
+			hit=2
 			cont += 1	
 			break
 					
@@ -92,7 +93,8 @@ func _on_texture_button_button_down():
 
 	if cont > 0:
 		cont = 0
-		if $"../../lbl_pass".get_text() == hit:
+		# test is variable created from the object of untitled class in Node2d
+		if $"../../..".test == hit:
 			var string1 = ($RichTextLabel.get_text())
 			var time = string1.to_int()
 			var points = 100/time
